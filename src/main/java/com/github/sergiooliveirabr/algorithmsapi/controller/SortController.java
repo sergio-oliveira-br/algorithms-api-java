@@ -1,6 +1,6 @@
 package com.github.sergiooliveirabr.algorithmsapi.controller;
 
-import com.github.sergiooliveirabr.algorithmsapi.services.GeneratorService;
+import com.github.sergiooliveirabr.algorithmsapi.services.randomizer.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.github.sergiooliveirabr.algorithmsapi.services;
+package com.github.sergiooliveirabr.algorithmsapi.services.randomizer;
 
 import org.springframework.stereotype.Service;
 
