@@ -20,7 +20,7 @@ public class SortOrchestratorStrategy {
         SortAlgorithmsStrategy sortAlgorithmsStrategy = sortAlgorithmsStrategyMap.get(selectedStrategy);
 
         if (sortAlgorithmsStrategy == null) {
-            throw new RuntimeException("No such strategy: " + selectedStrategy);
+            throw new IllegalArgumentException("No such strategy: " + selectedStrategy);
         }
         sortAlgorithmsStrategy.sortAlgorithm(arrayToSort);
     }
