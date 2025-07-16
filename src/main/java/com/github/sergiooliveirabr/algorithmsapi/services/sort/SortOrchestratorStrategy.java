@@ -15,13 +15,13 @@ public class SortOrchestratorStrategy {
         this.sortAlgorithmsStrategyMap = sortAlgorithmsStrategyMap;
     }
 
-    public void sortOrchestrator(int[] arrayToSort, String selectedStrategy) {
+    public int[] sortOrchestrator(int[] arrayToSort, String selectedStrategy) {
 
         SortAlgorithmsStrategy sortAlgorithmsStrategy = sortAlgorithmsStrategyMap.get(selectedStrategy);
 
         if (sortAlgorithmsStrategy == null) {
             throw new IllegalArgumentException("No such strategy: " + selectedStrategy);
         }
-        sortAlgorithmsStrategy.sortAlgorithm(arrayToSort);
+        return sortAlgorithmsStrategy.sortAlgorithm(arrayToSort);
     }
 }
