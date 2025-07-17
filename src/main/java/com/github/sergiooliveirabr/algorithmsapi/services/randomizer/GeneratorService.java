@@ -1,5 +1,6 @@
 package com.github.sergiooliveirabr.algorithmsapi.services.randomizer;
 
+import com.github.sergiooliveirabr.algorithmsapi.exception.InvalidQuantityException;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -10,7 +11,7 @@ public class GeneratorService {
     public int[] generateRandomNum(int qtyOfNumbersToGenerate) {
 
         if(qtyOfNumbersToGenerate <= 0) {
-            throw new IllegalArgumentException("Number of 'Qty Of Numbers To Generate', " +
+            throw new InvalidQuantityException("Number of 'Qty Of Numbers To Generate', " +
                     "which is '" + qtyOfNumbersToGenerate +"' must be greater than zero");
         }
 
