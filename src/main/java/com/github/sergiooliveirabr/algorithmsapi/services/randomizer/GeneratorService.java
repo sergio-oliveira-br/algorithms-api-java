@@ -9,6 +9,11 @@ public class GeneratorService {
 
     public int[] generateRandomNum(int qtyOfNumbersToGenerate) {
 
+        if(qtyOfNumbersToGenerate <= 0) {
+            throw new IllegalArgumentException("Number of 'Qty Of Numbers To Generate', " +
+                    "which is '" + qtyOfNumbersToGenerate +"' must be greater than zero");
+        }
+
         Random randomNumGenerator = new Random();
         int[] generatedNumbers = new int[qtyOfNumbersToGenerate];
 
