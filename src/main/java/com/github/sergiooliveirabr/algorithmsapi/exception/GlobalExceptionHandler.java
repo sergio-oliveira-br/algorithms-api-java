@@ -24,4 +24,13 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = createErrorResponse(status, ex.getMessage(), request);
         return new ResponseEntity<>(errorResponse, status);
     }
+
+    @ExceptionHandler(StrategyNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleStrategyNotFoundException(StrategyNotFoundException ex,
+                                                                         String message,
+                                                                         WebRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ErrorResponse errorResponse = createErrorResponse(status, ex.getMessage(), request);
+        return new ResponseEntity<>(errorResponse, status);
+    }
 }
