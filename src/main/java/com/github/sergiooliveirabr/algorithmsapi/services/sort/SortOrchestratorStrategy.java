@@ -1,5 +1,6 @@
 package com.github.sergiooliveirabr.algorithmsapi.services.sort;
 
+import com.github.sergiooliveirabr.algorithmsapi.exception.StrategyNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class SortOrchestratorStrategy {
         SortAlgorithmsStrategy sortAlgorithmsStrategy = sortAlgorithmsStrategyMap.get(selectedStrategy);
 
         if (sortAlgorithmsStrategy == null) {
-            throw new IllegalArgumentException("No such strategy: " + selectedStrategy);
+            throw new StrategyNotFoundException("Strategy: '" + selectedStrategy + "' does not exist.");
         }
         return sortAlgorithmsStrategy.sortAlgorithm(arrayToSort);
     }
