@@ -8,8 +8,6 @@ public class BubbleSortService implements SortAlgorithmsStrategy{
     @Override
     public int[] sortAlgorithm(int[] arrayToSort) {
 
-        System.out.println("service");
-
         int arraySize = arrayToSort.length;
 
         if (arraySize == 0) {
