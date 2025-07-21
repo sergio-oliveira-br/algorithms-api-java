@@ -1,9 +1,11 @@
 package com.github.sergiooliveirabr.algorithmsapi.controller;
 
+import com.github.sergiooliveirabr.algorithmsapi.dto.SortResult;
 import com.github.sergiooliveirabr.algorithmsapi.services.randomizer.GeneratorService;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy.BubbleSortService;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.SortOrchestratorStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,10 +33,10 @@ public class SortController {
     }
 
     @PostMapping("/algorithms")
-    public int[] sortAlgorithms(@RequestBody int[] generatedNumbersArray,
-                                @RequestParam String selectedAlgorithm) {
-        System.out.println("controlador");
+    public ResponseEntity<SortResult> sortAlgorithms(@RequestBody int[] generatedNumbersArray,
+                                         @RequestParam String selectedAlgorithm) {
 
-        return sortOrchestratorStrategy.sortOrchestrator(generatedNumbersArray, selectedAlgorithm);
+        SortResult sortResult = sortOrchestratorStrategy.sortOrchestrator(generatedNumbersArray, selectedAlgorithm);
+        return ResponseEntity.ok(sortResult);
     }
 }
