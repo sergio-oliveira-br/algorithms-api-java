@@ -1,7 +1,7 @@
 package com.github.sergiooliveirabr.algorithmsapi.controller;
 
 import com.github.sergiooliveirabr.algorithmsapi.services.randomizer.GeneratorService;
-import com.github.sergiooliveirabr.algorithmsapi.services.sort.BubbleSortService;
+import com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy.BubbleSortService;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.SortOrchestratorStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

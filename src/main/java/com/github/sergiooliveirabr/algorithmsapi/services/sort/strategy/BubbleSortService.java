@@ -1,9 +1,9 @@
-package com.github.sergiooliveirabr.algorithmsapi.services.sort;
+package com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class BubbleSortService implements SortAlgorithmsStrategy{
+public class BubbleSortService implements SortAlgorithmsStrategy {
 
     @Override
     public int[] sortAlgorithm(int[] arrayToSort) {

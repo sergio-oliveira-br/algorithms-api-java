@@ -1,6 +1,7 @@
 package com.github.sergiooliveirabr.algorithmsapi.services.sort;
 
 import com.github.sergiooliveirabr.algorithmsapi.exception.StrategyNotFoundException;
+import com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy.SortAlgorithmsStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
