@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/sort")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -33,10 +36,15 @@ public class SortController {
     }
 
     @PostMapping("/algorithms")
-    public ResponseEntity<SortResult> sortAlgorithms(@RequestBody int[] generatedNumbersArray,
-                                         @RequestParam String selectedAlgorithm) {
+    public ResponseEntity<List<SortResult>> sortAlgorithms(@RequestBody int[] generatedNumbersArray,
+                                                           @RequestParam List<String> selectedAlgorithms) {
+        
+        List<SortResult> results = new ArrayList<>();
 
-        SortResult sortResult = sortOrchestratorStrategy.sortOrchestrator(generatedNumbersArray, selectedAlgorithm);
-        return ResponseEntity.ok(sortResult);
+        for (String algorithm : selectedAlgorithms) {
+            SortResult result = sortOrchestratorStrategy.sortOrchestrator(generatedNumbersArray, algorithm);
+            results.add(result);
+        }
+        return ResponseEntity.ok(results);
     }
 }
