@@ -31,8 +31,17 @@ public class SortController {
     }
 
     @PostMapping("/generator")
-    public int[] randomizer(@RequestParam int qtyOfNumbersToGenerate) {
-        return generatorService.generateRandomNum(qtyOfNumbersToGenerate);
+    public ResponseEntity<?> randomizer(@RequestParam int qtyOfNumbersToGenerate) {
+
+        if(qtyOfNumbersToGenerate <= 0) {
+            return ResponseEntity.badRequest().body(new int[0]);
+        }
+        if(qtyOfNumbersToGenerate > 1000) {
+            return ResponseEntity.status(422).build();
+        }
+
+        int[] generatedNumbers = generatorService.generateRandomNum(qtyOfNumbersToGenerate);
+        return ResponseEntity.ok(generatedNumbers);
     }
 
     @PostMapping("/algorithms")
