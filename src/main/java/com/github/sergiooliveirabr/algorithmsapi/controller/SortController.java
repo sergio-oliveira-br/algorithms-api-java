@@ -4,6 +4,10 @@ import com.github.sergiooliveirabr.algorithmsapi.dto.SortResult;
 import com.github.sergiooliveirabr.algorithmsapi.services.randomizer.GeneratorService;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy.BubbleSortService;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.SortOrchestratorStrategy;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,14 +35,7 @@ public class SortController {
     }
 
     @PostMapping("/generator")
-    public ResponseEntity<?> randomizer(@RequestParam int qtyOfNumbersToGenerate) {
-
-        if(qtyOfNumbersToGenerate <= 0) {
-            return ResponseEntity.badRequest().body(new int[0]);
-        }
-        if(qtyOfNumbersToGenerate > 1000) {
-            return ResponseEntity.status(422).build();
-        }
+    public ResponseEntity<?> randomizer(@RequestParam @Min(value = 2) @Max(value = 1000) @NotNull int qtyOfNumbersToGenerate) {
 
         int[] generatedNumbers = generatorService.generateRandomNum(qtyOfNumbersToGenerate);
         return ResponseEntity.ok(generatedNumbers);
