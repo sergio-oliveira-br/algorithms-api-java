@@ -43,8 +43,12 @@ public class SortController {
 
     @PostMapping("/algorithms")
     public ResponseEntity<List<SortResult>> sortAlgorithms(@RequestBody int[] generatedNumbersArray,
-                                                           @RequestParam List<String> selectedAlgorithms) {
-        
+                                                           @RequestParam @NotEmpty List<String> selectedAlgorithms) {
+
+        if(generatedNumbersArray == null || generatedNumbersArray.length <= 1) {
+            return ResponseEntity.badRequest().build();
+        }
+
         List<SortResult> results = new ArrayList<>();
 
         for (String algorithm : selectedAlgorithms) {
