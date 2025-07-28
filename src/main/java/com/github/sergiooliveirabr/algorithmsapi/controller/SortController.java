@@ -21,16 +21,13 @@ import java.util.List;
 public class SortController {
 
     private final GeneratorService generatorService;
-    private final BubbleSortService bubbleSortService;
     private final SortOrchestratorStrategy sortOrchestratorStrategy;
 
     @Autowired
     public SortController(GeneratorService generatorService,
-                          BubbleSortService bubbleSortService,
                           SortOrchestratorStrategy sortOrchestratorStrategy) {
 
         this.generatorService = generatorService;
-        this.bubbleSortService = bubbleSortService;
         this.sortOrchestratorStrategy = sortOrchestratorStrategy;
     }
 
