@@ -26,4 +26,10 @@ public class FindMinOrMaxController {
         int minValue = findMinService.findMinOrMax(array);
         return ResponseEntity.ok(minValue);
     }
+
+    @PostMapping("/max-value")
+    public ResponseEntity<Integer> findMax(@RequestBody int[] array) {
+        int maxValue = findMaxService.findMinOrMax(array);
+        return ResponseEntity.ok(maxValue);
+    }
 }
