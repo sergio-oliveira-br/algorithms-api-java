@@ -3,7 +3,6 @@ package com.github.sergiooliveirabr.algorithmsapi.services.sort;
 import com.github.sergiooliveirabr.algorithmsapi.dto.SortResult;
 import com.github.sergiooliveirabr.algorithmsapi.exception.StrategyNotFoundException;
 import com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy.SortAlgorithmsStrategy;
-import com.github.sergiooliveirabr.algorithmsapi.services.utilities.PerformanceTimer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
