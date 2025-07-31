@@ -11,7 +11,12 @@ public class FindMinService implements FindMinOrMaxInterface {
     public int findMinOrMax(int[] array) {
 
         int minValue = array[0];
-        Arrays.sort(array);
+
+        for (int number : array) {
+            if (number < minValue) {
+                minValue = number;
+            }
+        }
         return minValue;
     }
 }
