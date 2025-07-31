@@ -3,8 +3,6 @@ package com.github.sergiooliveirabr.algorithmsapi.services.linearsearch;
 import com.github.sergiooliveirabr.algorithmsapi.services.utilities.ValidationUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-
 @Service
 public class FindMinService implements FindMinOrMaxInterface {
 
