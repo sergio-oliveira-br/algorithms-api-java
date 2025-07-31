@@ -1,5 +1,6 @@
 package com.github.sergiooliveirabr.algorithmsapi.services.sort.strategy;
 
+import com.github.sergiooliveirabr.algorithmsapi.services.utilities.ValidationUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,6 +10,8 @@ public class SelectionSortService implements SortAlgorithmsStrategy {
     public int[] sortAlgorithm(int[] arrayToSort) {
 
         int arraySize = arrayToSort.length;
+
+        ValidationUtils.validateArray(arrayToSort);
 
         for (int i = 0; i < arraySize; i++) {
             int minIndex = i;
