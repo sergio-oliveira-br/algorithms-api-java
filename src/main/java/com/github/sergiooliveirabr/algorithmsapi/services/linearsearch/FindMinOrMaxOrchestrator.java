@@ -20,9 +20,7 @@ public class FindMinOrMaxOrchestrator {
 
         if (strategy == null) {
             throw new StrategyNotFoundException("Strategy " + StrategyName + " not found");
-
         }
         return strategy.findMinOrMax(array);
-
     }
 }
