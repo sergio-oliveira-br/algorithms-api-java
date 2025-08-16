@@ -1,26 +1,23 @@
 package com.github.sergiooliveirabr.algorithmsapi.controller;
 
 import com.github.sergiooliveirabr.algorithmsapi.services.linearsearch.FindMaxService;
-import com.github.sergiooliveirabr.algorithmsapi.services.linearsearch.FindMinOrMaxInterface;
 import com.github.sergiooliveirabr.algorithmsapi.services.linearsearch.FindMinOrMaxOrchestrator;
-import com.github.sergiooliveirabr.algorithmsapi.services.linearsearch.FindMinService;
+import com.github.sergiooliveirabr.algorithmsapi.services.linearsearch.findMinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/find")
 @CrossOrigin("http://localhost:5173")
 public class FindMinOrMaxController {
 
-    private final FindMinService findMinService;
+    private final findMinService findMinService;
     private final FindMaxService findMaxService;
     private final FindMinOrMaxOrchestrator findMinOrMaxOrchestrator;
 
     @Autowired
-    public FindMinOrMaxController(FindMinService findMinService,
+    public FindMinOrMaxController(findMinService findMinService,
                                   FindMaxService findMaxService,
                                   FindMinOrMaxOrchestrator findMinOrMaxOrchestrator) {
         this.findMinService = findMinService;
@@ -40,11 +37,11 @@ public class FindMinOrMaxController {
         return ResponseEntity.ok(maxValue);
     }
 
-    @PostMapping("/min-or-max")
+    @PostMapping("/{findMinOrMaxStrategy}")
     public ResponseEntity<Integer> findMinOrMax(@RequestBody int[] array,
-                                                @RequestBody String findMinOrMaxStrategy) {
+                                                @PathVariable String findMinOrMaxStrategy) {
 
-        int resultFound = findMinOrMaxOrchestrator.executeStrategy(findMinOrMaxStrategy, array);
+        int resultFound = findMinOrMaxOrchestrator.executeStrategy("find" + findMinOrMaxStrategy + "Service", array);
         return ResponseEntity.ok(resultFound);
     }
 }
