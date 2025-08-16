@@ -4,7 +4,7 @@ import com.github.sergiooliveirabr.algorithmsapi.services.utilities.ValidationUt
 import org.springframework.stereotype.Service;
 
 @Service
-public class finMinService implements FindMinOrMaxInterface {
+public class findMinService implements FindMinOrMaxInterface {
 
     @Override
     public int findMinOrMax(int[] array) {
