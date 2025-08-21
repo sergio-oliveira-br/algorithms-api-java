@@ -1,5 +1,6 @@
 package com.github.sergiooliveirabr.algorithmsapi.controller;
 
+import com.github.sergiooliveirabr.algorithmsapi.dto.CheckResult;
 import com.github.sergiooliveirabr.algorithmsapi.services.checkduplicates.CheckDuplicatesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,9 @@ public class CheckDuplicatesController {
     }
 
     @PostMapping("/duplicates")
-    public ResponseEntity<Boolean> checkForDuplicates(@RequestBody int[] array) {
+    public ResponseEntity<CheckResult> checkForDuplicates(@RequestBody int[] array) {
 
-        boolean isDuplicate = checkDuplicatesService.isDuplicate(array);
-        return ResponseEntity.ok(isDuplicate);
+        CheckResult result = checkDuplicatesService.checkDuplicates(array);
+        return ResponseEntity.ok(result);
     }
 }
