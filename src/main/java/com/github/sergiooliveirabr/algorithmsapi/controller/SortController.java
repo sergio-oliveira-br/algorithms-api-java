@@ -20,22 +20,13 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:5173")
 public class SortController {
 
-    private final GeneratorService generatorService;
     private final SortOrchestratorStrategy sortOrchestratorStrategy;
 
     @Autowired
     public SortController(GeneratorService generatorService,
                           SortOrchestratorStrategy sortOrchestratorStrategy) {
 
-        this.generatorService = generatorService;
         this.sortOrchestratorStrategy = sortOrchestratorStrategy;
-    }
-
-    @PostMapping("/generator")
-    public ResponseEntity<?> randomizer(@RequestParam @Min(value = 2) @Max(value = 1000) @NotNull int qtyOfNumbersToGenerate) {
-
-        int[] generatedNumbers = generatorService.generateRandomNum(qtyOfNumbersToGenerate);
-        return ResponseEntity.ok(generatedNumbers);
     }
 
     @PostMapping("/algorithms")
